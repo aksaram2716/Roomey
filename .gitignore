@@ -23,4 +23,4 @@
 .byebug_history
 
 # ignore the gemfile.lock for travis
-Gemfile.lock
+# Gemfile.lock
