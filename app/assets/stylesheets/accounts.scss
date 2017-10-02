@@ -1,9 +1,11 @@
 // Place all the styles related to the Accounts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 html {
   overflow: hidden;
   height: 100%;
+  background-color: #0b0e10;
 }
 
 body {
@@ -13,4 +15,8 @@ body {
   background-color: purple;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+h1{
+  align-self: center;
 }
