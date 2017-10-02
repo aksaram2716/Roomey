@@ -4,6 +4,8 @@ class CreateAccounts < ActiveRecord::Migration[5.1]
       t.string :name
       t.string :password
       t.string :email
+      t.string :phone
+      t.string :address
 
       t.timestamps
     end
