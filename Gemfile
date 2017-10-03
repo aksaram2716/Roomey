@@ -55,3 +55,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # This is for the bootstrap CSS
 gem 'bootstrap-sass', '3.3.7'
+
+#adding a testing framework
+gem 'rails-controller-testing'
+
+gem 'bcrypt'

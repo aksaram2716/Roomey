@@ -9,5 +9,12 @@ class CreateAccounts < ActiveRecord::Migration[5.1]
 
       t.timestamps
     end
+
+    create_table :users do |t|
+        t.string :name
+        t.string :email
+
+        t.timestamps
+    end
   end
 end
