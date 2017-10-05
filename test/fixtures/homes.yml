@@ -3,9 +3,9 @@
 one:
   name: MyString
   address: MyString
-  admin: one
+  user: one
 
 two:
   name: MyString
   address: MyString
-  admin: two
+  user: two
