@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :homes
+  resources :homes
   get 'homes/new'
 
   get 'homes/create'

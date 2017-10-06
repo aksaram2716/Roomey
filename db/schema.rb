@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171005184851) do
+ActiveRecord::Schema.define(version: 20171006180605) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "name"
@@ -25,10 +25,10 @@ ActiveRecord::Schema.define(version: 20171005184851) do
   create_table "homes", force: :cascade do |t|
     t.string "name"
     t.string "address"
-    t.integer "user_id"
+    t.integer "Account_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_homes_on_user_id"
+    t.index ["Account_id"], name: "index_homes_on_Account_id"
   end
 
   create_table "users", force: :cascade do |t|
