@@ -5,9 +5,10 @@ class NewAccountMailer < ApplicationMailer
   #
   #   en.new_account_mailer.submitted.subject
   #
-  def submitted(comment)
-    @comment = comment
 
-    mail to: "schnei54@purdue.edu"
+  default :from => "roomeyApp@gmail.com"
+
+  def submitted(user)
+    mail(:to => user.email, :subject => "Registered")
   end
 end
