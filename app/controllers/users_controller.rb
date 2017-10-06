@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     if @user.save
       NewAccountMailer.submitted(@user).deliver_later
       log_in @user
-      flash[:success] = "Welcome to the Sample App!"
+      flash[:success] = "Welcome to Roomey!"
       redirect_to @user
     else
       render 'new'
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-        flash.now[:success] = "Profile updated"
+        flash[:success] = "Profile updated"
         redirect_to @user
     else
         render 'edit'
