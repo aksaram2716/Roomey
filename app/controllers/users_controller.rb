@@ -37,6 +37,11 @@ class UsersController < ApplicationController
     end
   end
 
+  # Remove user from apartment.
+  def leave_apt
+	flash[:success] = "User removed from apartment"
+  end
+
   private
 
     def user_params
@@ -59,4 +64,5 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
         redirect_to(root_url) unless @user == current_user
     end
+
 end
