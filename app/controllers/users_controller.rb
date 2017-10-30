@@ -39,6 +39,8 @@ class UsersController < ApplicationController
 
   # Remove user from apartment.
   def leave_apt
+  	@user = User.find(params[:id])
+	@user.update(apartment : NULL)
 	flash[:success] = "User removed from apartment"
   end
 
