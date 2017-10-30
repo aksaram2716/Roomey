@@ -397,7 +397,7 @@
 
 
     <pre>
-      database.transaction do |db|
+      database.json.transaction do |db|
         db.execute( "insert into table values ( 'a', 'b', 'c' )" )
         ...
       end
@@ -423,4 +423,4 @@
 
 #- "How do I discover metadata about a table/index?":
 #
-#- "How do I do tweak database settings?":
+#- "How do I do tweak database.json settings?":

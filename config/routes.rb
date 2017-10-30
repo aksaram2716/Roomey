@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
   resources :homes
+  get 'homes/new'
+
+  get 'homes/create'
+
+  get 'homes/destroy'
+
+  get 'homes/edit'
+
+  get 'homes/update'
+
   get 'users/new'
 
   get 'sessions/new'

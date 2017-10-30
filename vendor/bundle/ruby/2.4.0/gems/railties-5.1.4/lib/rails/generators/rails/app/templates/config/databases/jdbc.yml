@@ -10,10 +10,10 @@
 #   username: <%= app_name %>
 #   password:
 #   host: localhost
-#   database: <%= app_name %>_development
+#   database.json: <%= app_name %>_development
 #
-# Warning: The database defined as "test" will be erased and
-# re-generated from your development database when you run "rake".
+# Warning: The database.json defined as "test" will be erased and
+# re-generated from your development database.json when you run "rake".
 # Do not set this db to the same as development or production.
 #
 # test:
@@ -21,18 +21,18 @@
 #   username: <%= app_name %>
 #   password:
 #   host: localhost
-#   database: <%= app_name %>_test
+#   database.json: <%= app_name %>_test
 #
 # production:
 #   adapter: mssql
 #   username: <%= app_name %>
 #   password:
 #   host: localhost
-#   database: <%= app_name %>_production
+#   database.json: <%= app_name %>_production
 
 # If you are using oracle, db2, sybase, informix or prefer to use the plain
-# JDBC adapter, configure your database setting as the example below (requires
-# you to download and manually install the database vendor's JDBC driver .jar
+# JDBC adapter, configure your database.json setting as the example below (requires
+# you to download and manually install the database.json vendor's JDBC driver .jar
 # file). See your driver documentation for the appropriate driver class and
 # connection string:
 
@@ -47,16 +47,16 @@ development:
   <<: *default
   url: jdbc:db://localhost/<%= app_name %>_development
 
-# Warning: The database defined as "test" will be erased and
-# re-generated from your development database when you run "rake".
+# Warning: The database.json defined as "test" will be erased and
+# re-generated from your development database.json when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
   url: jdbc:db://localhost/<%= app_name %>_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
-# like your database password, in your source code. If your source code is
-# ever seen by anyone, they now have access to your database.
+# like your database.json password, in your source code. If your source code is
+# ever seen by anyone, they now have access to your database.json.
 #
 # Instead, provide the password as a unix environment variable when you boot
 # the app. Read http://guides.rubyonrails.org/configuring.html#configuring-a-database
