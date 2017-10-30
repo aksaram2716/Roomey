@@ -11,6 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 20171029214032) do
+
   create_table "chores", id: false, force: :cascade do |t|
     t.string "name"
     t.boolean "completed"
@@ -57,8 +58,6 @@ ActiveRecord::Schema.define(version: 20171029214032) do
     t.string "homePicture"
     t.integer "aid"
     t.integer "primary_key"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.index ["User_id"], name: "index_homes_on_User_id"
   end
 
@@ -69,8 +68,6 @@ ActiveRecord::Schema.define(version: 20171029214032) do
     t.boolean "public"
     t.integer "noteID"
     t.integer "primary_key"
-    t.integer "aid"
-    t.integer "uid"
   end
 
   create_table "services", id: false, force: :cascade do |t|
@@ -84,7 +81,6 @@ ActiveRecord::Schema.define(version: 20171029214032) do
     t.string "name"
     t.string "email"
     t.string "phone"
-    t.integer "aid"
     t.integer "uid"
     t.integer "primary_key"
     t.datetime "created_at", null: false

@@ -6,8 +6,8 @@ class CreateNotes < ActiveRecord::Migration[5.1]
       t.timestamp :endDate
       t.boolean :public
       t.integer :noteID, :primary_key
-      t.integer :aid
-      t.integer :uid
     end
+    add_foreign_key :homes, :aid
+    add_foreign_key :users, :uid
   end
 end

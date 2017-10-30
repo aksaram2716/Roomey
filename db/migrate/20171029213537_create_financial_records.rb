@@ -4,13 +4,13 @@ class CreateFinancialRecords < ActiveRecord::Migration[5.1]
       t.decimal :amount
       t.timestamp :dateOwed
       t.timestamp :datePaid
-      t.integer :uid
-      t.integer :aid
       t.integer :receiverUID
       t.integer :recieverSID
       t.boolean :paid
       t.decimal :amount
       t.integer :transactionID, :primary_key
     end
+    add_foreign_key :homes, :aid
+    add_foreign_key :users, :uid
   end
 end

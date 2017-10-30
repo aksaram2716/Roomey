@@ -7,10 +7,10 @@ class CreateChores < ActiveRecord::Migration[5.1]
       t.timestamp :startDate
       t.timestamp :endDate
       t.integer :cid, :primary_key
-      t.integer :aid
       t.integer :createdUID
       t.integer :noteID
       t.integer :assignedUID
     end
+    add_foreign_key :homes, :aid
   end
 end
