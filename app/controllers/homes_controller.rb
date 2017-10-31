@@ -64,12 +64,12 @@ class HomesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_home
-      @home = Home.find(params[:id])
+      @home = Home.find(params[:uid])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def home_params
-      params.require(:home).permit(:name, :address, :user_id)
+      params.require(:home).permit(:name, :address, :user_uid)
 
     end
 end
