@@ -7,9 +7,11 @@
   <% if logged_in? %>
   	
   <% else %>
+  	<%= link_to "Log in", '/login' %>
+  	<br>
   	<%= link_to("Sign up now!", '/signup') %>
   <% end %>
   <br>
-  <%= link_to("Create Homes", {:controller => 'homes', :action => 'new'}) %>
+  <%= link_to("Create Homes", '/homes') %>
 
 </div>
