@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(version: 20171029214032) do
     t.datetime "endDate"
     t.integer "cid"
     t.integer "primary_key"
-    t.integer "aid"
     t.integer "createdUID"
     t.integer "noteID"
     t.integer "assignedUID"
@@ -30,8 +29,6 @@ ActiveRecord::Schema.define(version: 20171029214032) do
     t.decimal "amount"
     t.datetime "dateOwed"
     t.datetime "datePaid"
-    t.integer "uid"
-    t.integer "aid"
     t.integer "receiverUID"
     t.integer "recieverSID"
     t.boolean "paid"
@@ -45,20 +42,17 @@ ActiveRecord::Schema.define(version: 20171029214032) do
     t.integer "timesBought"
     t.integer "gid"
     t.integer "primary_key"
-    t.integer "aid"
   end
 
   create_table "homes", id: false, force: :cascade do |t|
     t.string "name"
     t.string "address"
-    t.integer "User_id"
-    t.string "electricService"
-    t.string "waterService"
-    t.string "gasService"
-    t.string "homePicture"
+    t.integer "electricService"
+    t.integer "waterService"
+    t.integer "gasService"
+    t.integer "homePicture"
     t.integer "aid"
     t.integer "primary_key"
-    t.index ["User_id"], name: "index_homes_on_User_id"
   end
 
   create_table "notes", id: false, force: :cascade do |t|
@@ -79,7 +73,6 @@ ActiveRecord::Schema.define(version: 20171029214032) do
 
   create_table "users", id: false, force: :cascade do |t|
     t.string "name"
-    t.string "email"
     t.string "phone"
     t.integer "uid"
     t.integer "primary_key"
@@ -87,7 +80,7 @@ ActiveRecord::Schema.define(version: 20171029214032) do
     t.datetime "updated_at", null: false
     t.string "password_digest"
     t.string "remember_digest"
-    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index [nil], name: "index_users_on_email", unique: true
   end
 
 end

@@ -7,7 +7,7 @@ class CreateHomes < ActiveRecord::Migration[5.1]
       t.integer :waterService
       t.integer :gasService
       t.integer :homePicture
-      t.integer :aid , :primary_key
+      t.integer :aid , :primary_key, auto_increment: true
     end
   end
 end

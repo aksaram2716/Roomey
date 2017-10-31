@@ -8,7 +8,7 @@ class CreateFinancialRecords < ActiveRecord::Migration[5.1]
       t.integer :recieverSID
       t.boolean :paid
       t.decimal :amount
-      t.integer :transactionID, :primary_key
+      t.integer :transactionID, :primary_key, auto_increment: true
     end
     add_foreign_key :homes, :aid
     add_foreign_key :users, :uid

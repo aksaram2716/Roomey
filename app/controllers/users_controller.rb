@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find(params[:uid])
   end
 
   def new
@@ -24,11 +24,11 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = User.find(params[:uid])
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = User.find(params[:uid])
     if @user.update_attributes(user_params)
         flash[:success] = "Profile updated"
         redirect_to @user
@@ -39,8 +39,7 @@ class UsersController < ApplicationController
 
   # Remove user from apartment.
   def leave_apt
-  	@user = User.find(params[:id])
-	@user.update(apartment : NULL)
+  	@user = User.find(params[:uid])
 	flash[:success] = "User removed from apartment"
   end
 
@@ -63,7 +62,7 @@ class UsersController < ApplicationController
 
     # Confirms the correct user.
     def correct_user
-        @user = User.find(params[:id])
+        @user = User.find(params[:uid])
         redirect_to(root_url) unless @user == current_user
     end
 

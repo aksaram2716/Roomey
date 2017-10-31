@@ -5,7 +5,7 @@ class CreateNotes < ActiveRecord::Migration[5.1]
       t.timestamp :startDate
       t.timestamp :endDate
       t.boolean :public
-      t.integer :noteID, :primary_key
+      t.integer :noteID, :primary_key, auto_increment: true
     end
     add_foreign_key :homes, :aid
     add_foreign_key :users, :uid
