@@ -4,8 +4,11 @@
   <h2>
     This is the homepage for Roomey
   </h2>
-
-  <%= link_to("Sign up now!", '/signup') %>
+  <% if logged_in? %>
+  	
+  <% else %>
+  	<%= link_to("Sign up now!", '/signup') %>
+  <% end %>
   <br>
   <%= link_to("Create Homes", {:controller => 'homes', :action => 'new'}) %>
 
