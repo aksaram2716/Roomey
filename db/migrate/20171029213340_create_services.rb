@@ -1,6 +1,6 @@
 class CreateServices < ActiveRecord::Migration[5.1]
   def change
-    create_table :services, id: false do |t|
+    create_table :services do |t|
       t.string :type
       t.string :name
       t.string :location

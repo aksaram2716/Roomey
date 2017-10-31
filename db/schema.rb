@@ -10,61 +10,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171029214032) do
+ActiveRecord::Schema.define(version: 20171031160023) do
 
-  create_table "chores", id: false, force: :cascade do |t|
+  create_table "chores", force: :cascade do |t|
     t.string "name"
     t.boolean "completed"
     t.integer "frequency"
     t.datetime "startDate"
     t.datetime "endDate"
-    t.integer "cid"
-    t.integer "primary_key"
     t.integer "createdUID"
     t.integer "noteID"
     t.integer "assignedUID"
   end
 
-  create_table "financial_records", id: false, force: :cascade do |t|
+  create_table "financial_records", force: :cascade do |t|
     t.decimal "amount"
     t.datetime "dateOwed"
     t.datetime "datePaid"
     t.integer "receiverUID"
     t.integer "recieverSID"
     t.boolean "paid"
-    t.integer "transactionID"
-    t.integer "primary_key"
   end
 
-  create_table "grocery_lists", id: false, force: :cascade do |t|
+  create_table "grocery_lists", force: :cascade do |t|
     t.decimal "price"
     t.string "name"
     t.integer "timesBought"
-    t.integer "gid"
-    t.integer "primary_key"
   end
 
-  create_table "homes", id: false, force: :cascade do |t|
+  create_table "homes", force: :cascade do |t|
     t.string "name"
     t.string "address"
     t.integer "electricService"
     t.integer "waterService"
     t.integer "gasService"
     t.integer "homePicture"
-    t.integer "aid"
-    t.integer "primary_key"
   end
 
-  create_table "notes", id: false, force: :cascade do |t|
+  create_table "notes", force: :cascade do |t|
     t.string "text"
     t.datetime "startDate"
     t.datetime "endDate"
     t.boolean "public"
-    t.integer "noteID"
-    t.integer "primary_key"
   end
 
-  create_table "services", id: false, force: :cascade do |t|
+  create_table "services", force: :cascade do |t|
     t.string "type"
     t.string "name"
     t.string "location"
@@ -79,6 +69,8 @@ ActiveRecord::Schema.define(version: 20171029214032) do
     t.datetime "updated_at", null: false
     t.string "password_digest"
     t.string "remember_digest"
+    t.string "reset_digest"
+    t.datetime "reset_sent_at"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
