@@ -6,14 +6,24 @@
         <%= gravatar_for @user %>
         <%= @user.name %>
       </h1>
+      <h2>
+        <%= @user.homes_id %>
+      </h2>
     </section>
   </aside>
 
   <h3> Current Home: </h3>
   <%= if @user.homes_id.blank?
-        link_to("Create Home", '/homes')
-      else
-        link_to("Go To Home", '/homes')
+        link_to("Create Home", '/homes/new')
+      end %>
+
+  <%= if @user.homes_id.blank?
+        link_to("Join Home", '/homes/')
+      end %>
+
+  <%= if @user.homes_id
+        #Home.find(@user.homes_id)
+        link_to("Go To Home", '/homes/' + @user.homes_id.to_s)
       end %>
 
   </br>

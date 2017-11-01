@@ -30,7 +30,7 @@ class HomesController < ApplicationController
 
     respond_to do |format|
       if @home.save
-        user = User.find_by(id: 1)
+        user = current_user
         user.update(homes_id: @home.id)
         format.html { redirect_to @home, notice: 'Home was successfully created.' }
         format.json { render :show, status: :created, location: @home }
@@ -39,6 +39,12 @@ class HomesController < ApplicationController
         format.json { render json: @home.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def join(joinedHome)
+    user = current_user
+    user.update(homes_id: joinedHome.id)
+    format.html { redirect_to joinedHome }
   end
 
   # PATCH/PUT /homes/1
