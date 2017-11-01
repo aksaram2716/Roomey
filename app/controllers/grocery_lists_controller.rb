@@ -58,7 +58,7 @@ class GroceryListsController < ActionController::Base
   def destroy
     @grocerylist.destroy
     respond_to do |format|
-      format.html { redirect_to grocerylist_url, notice: 'Home was successfully destroyed.' }
+      format.html { redirect_to grocery_list_url, notice: 'Home was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
