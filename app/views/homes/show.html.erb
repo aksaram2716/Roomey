@@ -1,14 +1,69 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, @home.name) %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <%= @home.name %>
+      </h1>
 
-<p>
-  <strong>Name:</strong>
-  <%= @home.name %>
+      <p>
+        <strong>Name:</strong>
+        <%= @home.name %>
+      </p>
+
+      <p>
+        <strong>Address:</strong>
+        <%= @home.address %>
+      </p>
+    </section>
+
+    <P>
+      <h3>
+        Housemates:
+      </h3>
+      <h5>
+        List of other users who are members of this house.
+        This will also have outstanding debts to said users.
+      </h5>
+    </p>
+
+    <%= link_to 'Edit', edit_home_path(@home) %> |
+    <%= link_to 'Back', homes_path %>
+    
+  </aside>
+
+<P>
+  <h3>
+    Groceries:
+  </h3>
+  <h5>
+    List of Groceries to get.
+  </h5>
 </p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @home.address %>
+<P>
+  <h3>
+    Bills and Expenses:
+  </h3>
+  <h5>
+    List of Outstanding expenses.
+  </h5>
 </p>
 
-<%= link_to 'Edit', edit_home_path(@home) %> |
-<%= link_to 'Back', homes_path %>
+<P>
+  <h3>
+    Chores:
+  </h3>
+  <h5>
+    List of Chores to do here.
+  </h5>
+</p>
+
+<P>
+  <h3>
+    Notes:
+  </h3>
+  <h5>
+    Notes here.
+  </h5>
+</p>

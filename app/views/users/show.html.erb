@@ -8,5 +8,11 @@
       </h1>
     </section>
   </aside>
+
+  <h3> Current Home: </h3>
+  <%= @home = Home.find(params[:id]) %>
+  <%= link_to("Go To Home", '/homes/1') %>
+  </br>
   <%= link_to("Create Home", '/homes') %>
+
 </div>
