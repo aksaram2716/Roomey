@@ -10,10 +10,10 @@
   </aside>
 
   <h3> Current Home: </h3>
-  <%= if Home.exists?(1)
-        link_to("Go To Home", '/homes/1')
-      else
+  <%= if @user.homes_id.blank?
         link_to("Create Home", '/homes')
+      else
+        link_to("Go To Home", '/homes')
       end %>
 
   </br>
