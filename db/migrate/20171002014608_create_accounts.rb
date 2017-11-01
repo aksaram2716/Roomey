@@ -4,9 +4,8 @@ class CreateAccounts < ActiveRecord::Migration[5.1]
         t.string :name
         t.string :phone
         t.string :email
-
+        t.references :homes
         t.timestamps
     end
-    add_foreign_key :homes, :id
   end
 end

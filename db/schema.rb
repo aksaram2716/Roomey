@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 20171031160023) do
     t.integer "createdUID"
     t.integer "noteID"
     t.integer "assignedUID"
+    t.integer "homes_id"
+    t.index ["homes_id"], name: "index_chores_on_homes_id"
   end
 
   create_table "financial_records", force: :cascade do |t|
@@ -30,12 +32,18 @@ ActiveRecord::Schema.define(version: 20171031160023) do
     t.integer "receiverUID"
     t.integer "recieverSID"
     t.boolean "paid"
+    t.integer "homes_id"
+    t.integer "users_id"
+    t.index ["homes_id"], name: "index_financial_records_on_homes_id"
+    t.index ["users_id"], name: "index_financial_records_on_users_id"
   end
 
   create_table "grocery_lists", force: :cascade do |t|
     t.decimal "price"
     t.string "name"
     t.integer "timesBought"
+    t.integer "homes_id"
+    t.index ["homes_id"], name: "index_grocery_lists_on_homes_id"
   end
 
   create_table "homes", force: :cascade do |t|
@@ -52,6 +60,10 @@ ActiveRecord::Schema.define(version: 20171031160023) do
     t.datetime "startDate"
     t.datetime "endDate"
     t.boolean "public"
+    t.integer "homes_id"
+    t.integer "users_id"
+    t.index ["homes_id"], name: "index_notes_on_homes_id"
+    t.index ["users_id"], name: "index_notes_on_users_id"
   end
 
   create_table "services", force: :cascade do |t|
@@ -65,6 +77,7 @@ ActiveRecord::Schema.define(version: 20171031160023) do
     t.string "name"
     t.string "phone"
     t.string "email"
+    t.integer "homes_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
@@ -72,6 +85,7 @@ ActiveRecord::Schema.define(version: 20171031160023) do
     t.string "reset_digest"
     t.datetime "reset_sent_at"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["homes_id"], name: "index_users_on_homes_id"
   end
 
 end

@@ -9,7 +9,7 @@ class CreateChores < ActiveRecord::Migration[5.1]
       t.integer :createdUID
       t.integer :noteID
       t.integer :assignedUID
+      t.references :homes
     end
-    add_foreign_key :homes, :id
   end
 end

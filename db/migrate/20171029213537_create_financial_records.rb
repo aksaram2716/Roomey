@@ -8,8 +8,8 @@ class CreateFinancialRecords < ActiveRecord::Migration[5.1]
       t.integer :recieverSID
       t.boolean :paid
       t.decimal :amount
+      t.references :homes
+      t.references :users
     end
-    add_foreign_key :homes, :id
-    add_foreign_key :users, :id
   end
 end

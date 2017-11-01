@@ -4,7 +4,7 @@ class CreateGroceryLists < ActiveRecord::Migration[5.1]
       t.decimal :price
       t.string :name
       t.integer :timesBought
+      t.references :homes
     end
-    add_foreign_key :homes, :id
   end
 end

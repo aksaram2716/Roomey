@@ -12,12 +12,6 @@ Rails.application.routes.draw do
   get 'homes/edit'
   get 'homes/update'
 
-  get 'grocery_list/new'
-  get 'grocery_list/create'
-  get 'grocery_list/destroy'
-  get 'grocery_list/edit'
-  get 'grocery_list/update'
-
   get 'users/new'
 
   get 'sessions/new'

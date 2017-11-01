@@ -5,8 +5,8 @@ class CreateNotes < ActiveRecord::Migration[5.1]
       t.timestamp :startDate
       t.timestamp :endDate
       t.boolean :public
+      t.references :homes
+      t.references :users
     end
-    add_foreign_key :homes, :id
-    add_foreign_key :users, :id
   end
 end
