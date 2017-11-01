@@ -15,6 +15,9 @@
         <strong>Address:</strong>
         <%= @home.address %>
       </p>
+      
+      <%= link_to 'Edit', edit_home_path(@home) %> |
+      <%= link_to 'Back', homes_path %>
     </section>
 
     <P>
@@ -24,12 +27,13 @@
       <h5>
         List of other users who are members of this house.
         This will also have outstanding debts to said users.
+        <br>
+        <br>
+        <%= @user = User.all %>
+        <%= link_to("Pay Roomates", '/homes/1') %>
       </h5>
     </p>
 
-    <%= link_to 'Edit', edit_home_path(@home) %> |
-    <%= link_to 'Back', homes_path %>
-    
   </aside>
 
 <P>
