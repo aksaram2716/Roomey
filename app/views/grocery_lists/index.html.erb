@@ -7,6 +7,7 @@
     <tr>
       <th>Name</th>
       <th>Price</th>
+      <th>homes id</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,6 +17,7 @@
       <tr>
         <td><%= grocerylist.name %></td>
         <td><%= grocerylist.price %></td>
+        <td><%= grocerylist.homes_id %></td>
         <td><%= link_to 'Show', grocerylist %></td>
         <td><%= link_to 'Edit', edit_grocery_list_path(grocerylist) %></td>
         <td><%= link_to 'Destroy', grocerylist, method: :delete, data: { confirm: 'Are you sure?' } %></td>

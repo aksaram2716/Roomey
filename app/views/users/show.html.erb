@@ -10,7 +10,7 @@
   </aside>
 
   <h3> Current Home: </h3>
-  <%= @home = Home.find(params[:id]) %>
+  <%= @home = Home.find(params[:id]) rescue "no homes!"%>
   <%= link_to("Go To Home", '/homes/1') %>
   </br>
   <%= link_to("Create Home", '/homes') %>

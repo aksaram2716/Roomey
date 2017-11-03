@@ -1,7 +1,7 @@
-class GroceryListsController < ActionController::Base
+class GroceryListsController < ApplicationController
   before_action :set_grocerylist, only: [:show, :edit, :update, :destroy]
-  #before_action :logged_in_user, only: [:show, :edit, :update]
-  #before_action :correct_user,   only: [:show, :edit, :update]
+  before_action :logged_in_user, only: [:show, :edit, :update]
+  before_action :correct_user,   only: [:show, :edit, :update]
 
   # GET /grocerylist
   # GET /grocerylist.json
