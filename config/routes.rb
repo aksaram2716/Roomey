@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     collection do
       get 'remove'
       get 'removeSelf'
+      get 'join'
     end
   end
 
