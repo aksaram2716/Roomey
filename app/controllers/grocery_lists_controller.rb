@@ -6,7 +6,9 @@ class GroceryListsController < ApplicationController
   # GET /grocerylist
   # GET /grocerylist.json
   def index
-    @grocerylists = GroceryList.all
+    user = current_user
+    @grocerylists = GroceryList.where(homes_id: user.homes_id)
+    @commonlybought = GroceryList.where(homes_id: user.homes_id)
   end
 
   # GET /grocerylist/1
@@ -30,6 +32,8 @@ class GroceryListsController < ApplicationController
 
     respond_to do |format|
       if @grocerylist.save
+        user = current_user
+        @grocerylist.update(homes_id: user.homes_id)
         format.html { redirect_to @grocerylist, notice: 'GroceryList was successfully created.' }
         format.json { render :show, status: :created, location: @grocerylist }
       else
