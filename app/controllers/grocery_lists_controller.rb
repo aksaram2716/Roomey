@@ -7,7 +7,7 @@ class GroceryListsController < ApplicationController
   # GET /grocerylist.json
   def index
     user = current_user
-    @grocerylists = GroceryList.where(homes_id: user.homes_id)
+    @grocerylists = GroceryList.where(homes_id: user.homes_id, shouldBuy: false)
     @commonlybought = GroceryList.where(homes_id: user.homes_id).order(timesBought: :desc).first(10)
   end
 
@@ -33,7 +33,7 @@ class GroceryListsController < ApplicationController
     respond_to do |format|
       if @grocerylist.save
         user = current_user
-        @grocerylist.update(homes_id: user.homes_id)
+        @grocerylist.update({homes_id: user.homes_id, shouldBuy: false})
         format.html { redirect_to @grocerylist, notice: 'GroceryList was successfully created.' }
         format.json { render :show, status: :created, location: @grocerylist }
       else
