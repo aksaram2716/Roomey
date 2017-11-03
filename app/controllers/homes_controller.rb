@@ -81,8 +81,8 @@ class HomesController < ApplicationController
 
   # Confirms the correct user.
   def correct_user
-    #@home = Home.find(Users.find(current_user.id))
-    #redirect_to(root_url) unless @home == Home.find(params[:id])
+    @home = Home.find(current_user.homes_id)
+    redirect_to(root_url) unless @home == Home.find(params[:id])
   end
 
   private
