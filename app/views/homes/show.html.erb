@@ -18,7 +18,7 @@
 
       <%= link_to 'Edit', edit_home_path(@home) %> |
       <%= link_to 'Back', homes_path %> |
-      <%= link_to 'Remove', removeSelf_homes_path %>
+      <%= link_to 'Leave House', removeSelf_homes_path %>
 
     </section>
 
@@ -28,6 +28,7 @@
           <thead>
             <tr>
               <th>Housemates</th>
+              <th><%=@home.users_id%></th>
             </tr>
           </thead>
           <tbody>
