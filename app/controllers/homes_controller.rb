@@ -32,6 +32,7 @@ class HomesController < ApplicationController
     respond_to do |format|
       if @home.save
         user = current_user
+        @home.update(users_id: current_user.id)
         user.update(homes_id: @home.id)
         format.html { redirect_to @home, notice: 'Home was successfully created.' }
         format.json { render :show, status: :created, location: @home }
