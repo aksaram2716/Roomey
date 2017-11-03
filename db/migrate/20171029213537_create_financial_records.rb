@@ -2,8 +2,8 @@ class CreateFinancialRecords < ActiveRecord::Migration[5.1]
   def change
     create_table :financial_records do |t|
       t.decimal :amount
-      t.timestamp :dateOwed
-      t.timestamp :datePaid
+      t.date :dateOwed
+      t.date :datePaid
       t.integer :receiverUID
       t.integer :recieverSID
       t.boolean :paid

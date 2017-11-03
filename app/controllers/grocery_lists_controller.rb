@@ -101,7 +101,7 @@ class GroceryListsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def grocery_list_params
-      params.require(:grocery_list).permit(:price, :name, :timesBought)
+      params.require(:grocery_list).permit(:price, :name, :quantity)
 
     end
 end

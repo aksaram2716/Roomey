@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
 
   resources :password_resets,     only: [:new, :create, :edit, :update]
+  resources :financial_records
+
   resources :messages do
     resources :comments
   end
+
+
+
   resources :homes do
     collection do
       get 'remove'

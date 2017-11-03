@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Amount</strong>
+  <%= @financialrecord.amount %>
+</p>
+
+&nbsp
+
+<p>
+  <strong>Home ID</strong>
+  <%= @financialrecord.homes_id %>
+</p>
+
+&nbsp
+
+<p>
+  <strong>dateOwed</strong>
+  <%= @financialrecord.dateOwed %>
+</p>
+
+&nbsp
+
+<p>
+  <strong>datePaid </strong>
+  <%= @financialrecord.datePaid %>
+</p>
+
+&nbsp
+
+<p>
+  <strong>receiverUID </strong>
+  <%= @financialrecord.receiverUID %>
+</p>
+
+&nbsp
+
+<p>
+  <strong>recieverSID</strong>
+  <%= @financialrecord.recieverSID %>
+</p>
+
+&nbsp
+
+<p>
+  <strong>paid</strong>
+  <%= @financialrecord.paid %>
+</p>
+
+&nbsp
+<p>
+  <strong>users_id </strong>
+  <%= @financialrecord.users_id %>
+</p>
+
+&nbsp
+
+
+<%= link_to 'Edit', edit_financial_record_path(@financialrecord) %> |
+<%= link_to 'Back', financial_records_path %>
