@@ -15,25 +15,33 @@
         <strong>Address:</strong>
         <%= @home.address %>
       </p>
-      
+
       <%= link_to 'Edit', edit_home_path(@home) %> |
-      <%= link_to 'Back', homes_path %>
+      <%= link_to 'Back', homes_path %> |
+      <%= link_to 'Remove', remove %>
     </section>
 
     <P>
-      <h3>
-        Housemates:
-      </h3>
       <h5>
-        List of other users who are members of this house.
-        This will also have outstanding debts to said users.
-        <br>
-        <br>
-        <%= @user = User.all %>
-        <%= link_to("Pay Roomates", '/homes/1') %>
+        <table>
+
+          <thead>
+            <tr>
+              <th>Housemates</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @users.each do |users| %>
+            <tr>
+              <td><%=users.name%></td>
+              <td><%= link_to("Pay Roomate", '/homes/1') %></td>
+            </tr>
+
+          <% end %>
+        </tbody>
+        </table>
       </h5>
     </p>
-
   </aside>
 
 <P>

@@ -12,6 +12,7 @@ class HomesController < ApplicationController
   # GET /homes/1
   # GET /homes/1.json
   def show
+    @users = User.where(homes_id: params[:id])
   end
 
   # GET /homes/new
@@ -41,11 +42,10 @@ class HomesController < ApplicationController
     end
   end
 
-  def join(joinedHome)
-    user = current_user
-    user.update(homes_id: joinedHome.id)
-    format.html { redirect_to joinedHome }
+  def remove
+    #@users.update(current_user.id, :homes_id => nil)
   end
+  helper_method :remove
 
   # PATCH/PUT /homes/1
   # PATCH/PUT /homes/1.json
@@ -81,8 +81,13 @@ class HomesController < ApplicationController
 
   # Confirms the correct user.
   def correct_user
-    #@home = Home.find(Users.find(current_user.id))
-    #redirect_to(root_url) unless @home == Home.find(params[:id])
+    if current_user.homes_id.blank?
+      user = current_user
+      user.update(homes_id: @home.id)
+    else
+      @home = Home.find(current_user.homes_id)
+      redirect_to(root_url) unless @home == Home.find(params[:id])
+    end
   end
 
   private
