@@ -5,7 +5,11 @@ Rails.application.routes.draw do
     resources :comments
   end
   resources :homes
-  resources :grocery_lists
+  resources :grocery_lists do
+    collection do
+      get 'bought'
+    end
+  end
   resources :users
 
   get 'homes/new'

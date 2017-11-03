@@ -8,7 +8,7 @@ class GroceryListsController < ApplicationController
   def index
     user = current_user
     @grocerylists = GroceryList.where(homes_id: user.homes_id)
-    @commonlybought = GroceryList.where(homes_id: user.homes_id)
+    @commonlybought = GroceryList.where(homes_id: user.homes_id).order(timesBought: :desc).first(10)
   end
 
   # GET /grocerylist/1
@@ -57,12 +57,16 @@ class GroceryListsController < ApplicationController
     end
   end
 
+  def bought
+    redirect_to(root_url)
+  end
+
   # DELETE /grocerylist/1
   # DELETE /grocerylist/1.json
   def destroy
     @grocerylist.destroy
     respond_to do |format|
-      format.html { redirect_to grocery_list_url, notice: 'Home was successfully destroyed.' }
+      format.html { redirect_to grocery_lists_url, notice: 'Home was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

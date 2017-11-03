@@ -2,12 +2,13 @@
 
 <h1>Grocery List</h1>
 
+<h3>Current Grocery List</h3>
+
 <table>
   <thead>
     <tr>
       <th>Name</th>
       <th>Price</th>
-      <th>homes id</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,41 +18,42 @@
       <tr>
         <td><%= grocerylist.name %></td>
         <td><%= grocerylist.price %></td>
-        <td><%= grocerylist.homes_id %></td>
         <td><%= link_to 'Show', grocerylist %></td>
         <td><%= link_to 'Edit', edit_grocery_list_path(grocerylist) %></td>
         <td><%= link_to 'Destroy', grocerylist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', bought_grocery_lists_path %></td>
       </tr>
     <% end %>
 
   </tbody>
 </table>
 
+<br/>
 
+<%= link_to 'New Item', new_grocery_list_path %>
 
+<br/>
+<br/>
+<br/>
 
-
+<h3>Most Commonly Bought Goods</h3>
 
 <table>
   <thead>
     <tr>
       <th>Name</th>
       <th>Price</th>
-      <th>homes id</th>
       <th>times Bought</th>
-      <th colspan="3"></th>
+      <th colspan="4"></th>
     </tr>
   </thead>
-
+    <tbody>
     <% @commonlybought.each do |commonlybought| %>
           <tr>
             <td><%= commonlybought.name %></td>
             <td><%= commonlybought.price %></td>
-            <td><%= commonlybought.homes_id %></td>
             <td><%= commonlybought.timesBought %></td>
             <td><%= link_to 'Show', commonlybought %></td>
-            <td><%= link_to 'Edit', edit_grocery_list_path(commonlybought) %></td>
-            <td><%= link_to 'Destroy', commonlybought, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
     <% end %>
   </tbody>
@@ -59,4 +61,4 @@
 
 <br>
 
-<%= link_to 'New Item', new_grocery_list_path %>
+

@@ -51,6 +51,8 @@ ActiveRecord::Schema.define(version: 20171102221745) do
   create_table "grocery_lists", force: :cascade do |t|
     t.decimal "price"
     t.string "name"
+    t.integer "quantity"
+    t.boolean "shouldBuy"
     t.integer "timesBought"
     t.integer "homes_id"
     t.index ["homes_id"], name: "index_grocery_lists_on_homes_id"
