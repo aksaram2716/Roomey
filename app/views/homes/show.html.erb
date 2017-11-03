@@ -18,12 +18,14 @@
 
       <%= link_to 'Edit', edit_home_path(@home) %> |
       <%= link_to 'Back', homes_path %>
+      <%= if @home.users_id
+            link_to("Remove User", '/homes')
+      end %>
     </section>
 
     <P>
       <h5>
         <table>
-
           <thead>
             <tr>
               <th>Housemates</th>
@@ -35,7 +37,6 @@
               <td><%=users.name%></td>
               <td><%= link_to("Pay Roomate", '/homes/1') %></td>
             </tr>
-
           <% end %>
         </tbody>
         </table>
