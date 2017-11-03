@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(version: 20171102221745) do
 
   create_table "financial_records", force: :cascade do |t|
     t.decimal "amount"
-    t.datetime "dateOwed"
-    t.datetime "datePaid"
+    t.date "dateOwed"
+    t.date "datePaid"
     t.integer "receiverUID"
     t.integer "recieverSID"
     t.boolean "paid"
