@@ -37,7 +37,7 @@
               <td><%=users.name%></td>
               <td><%= link_to("Pay Roomate", '/homes/1') %></td>
               <td><%= if @home.users_id == current_user.id
-                    link_to("Remove User", remove_homes_path(:user => users))
+                    link_to("Remove User", remove_homes_path(:user => users.id))
               end %></td>
             </tr>
           <% end %>

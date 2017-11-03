@@ -43,8 +43,7 @@ class HomesController < ApplicationController
   end
 
   def remove
-    @user = User.find(params[:id])
-    @user.update(:homes_id => nil)
+    User.update(params[:user], :homes_id => nil)
     redirect_to (root_url)
   end
 
