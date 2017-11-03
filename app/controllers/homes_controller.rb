@@ -32,7 +32,6 @@ class HomesController < ApplicationController
     respond_to do |format|
       if @home.save
         user = current_user
-        @home.update(users_id: current_user.id)
         user.update(homes_id: @home.id)
         format.html { redirect_to @home, notice: 'Home was successfully created.' }
         format.json { render :show, status: :created, location: @home }
@@ -53,6 +52,7 @@ class HomesController < ApplicationController
     User.update(current_user.id, :homes_id => nil)
     redirect_to (root_url)
   end
+  helper_method :remove
 
   # PATCH/PUT /homes/1
   # PATCH/PUT /homes/1.json
