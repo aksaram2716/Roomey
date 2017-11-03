@@ -13,6 +13,7 @@
   </aside>
 
   <h3> Current Home: </h3>
+
   <%= if @user.homes_id.blank?
         link_to("Create Home", '/homes/new')
       end %>

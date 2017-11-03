@@ -43,11 +43,10 @@ class HomesController < ApplicationController
     end
   end
 
-  def join(joinedHome)
-    user = current_user
-    user.update(homes_id: joinedHome.id)
-    format.html { redirect_to joinedHome }
+  def remove
+    #@users.update(current_user.id, :homes_id => nil)
   end
+  helper_method :remove
 
   # PATCH/PUT /homes/1
   # PATCH/PUT /homes/1.json

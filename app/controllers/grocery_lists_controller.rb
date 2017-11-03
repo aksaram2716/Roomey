@@ -1,12 +1,14 @@
-class GroceryListsController < ActionController::Base
+class GroceryListsController < ApplicationController
   before_action :set_grocerylist, only: [:show, :edit, :update, :destroy]
-  #before_action :logged_in_user, only: [:show, :edit, :update]
-  #before_action :correct_user,   only: [:show, :edit, :update]
+  before_action :logged_in_user, only: [:show, :edit, :update]
+  before_action :correct_user,   only: [:show, :edit, :update]
 
   # GET /grocerylist
   # GET /grocerylist.json
   def index
-    @grocerylists = GroceryList.all
+    user = current_user
+    @grocerylists = GroceryList.where(homes_id: user.homes_id)
+    @commonlybought = GroceryList.where(homes_id: user.homes_id).order(timesBought: :desc).first(10)
   end
 
   # GET /grocerylist/1
@@ -30,6 +32,8 @@ class GroceryListsController < ActionController::Base
 
     respond_to do |format|
       if @grocerylist.save
+        user = current_user
+        @grocerylist.update(homes_id: user.homes_id)
         format.html { redirect_to @grocerylist, notice: 'GroceryList was successfully created.' }
         format.json { render :show, status: :created, location: @grocerylist }
       else
@@ -53,12 +57,16 @@ class GroceryListsController < ActionController::Base
     end
   end
 
+  def bought
+    redirect_to(root_url)
+  end
+
   # DELETE /grocerylist/1
   # DELETE /grocerylist/1.json
   def destroy
     @grocerylist.destroy
     respond_to do |format|
-      format.html { redirect_to grocery_list_url, notice: 'Home was successfully destroyed.' }
+      format.html { redirect_to grocery_lists_url, notice: 'Home was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
