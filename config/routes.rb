@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
   resources :password_resets,     only: [:new, :create, :edit, :update]
-
+  resources :messages do
+    resources :comments
+  end
   resources :homes
   resources :grocery_lists
   resources :users

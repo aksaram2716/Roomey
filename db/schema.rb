@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171031160023) do
+ActiveRecord::Schema.define(version: 20171102221745) do
 
   create_table "chores", force: :cascade do |t|
     t.string "name"
@@ -23,6 +23,16 @@ ActiveRecord::Schema.define(version: 20171031160023) do
     t.integer "assignedUID"
     t.integer "homes_id"
     t.index ["homes_id"], name: "index_chores_on_homes_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.integer "message_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["message_id"], name: "index_comments_on_message_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "financial_records", force: :cascade do |t|
@@ -53,6 +63,14 @@ ActiveRecord::Schema.define(version: 20171031160023) do
     t.integer "waterService"
     t.integer "gasService"
     t.integer "homePicture"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "notes", force: :cascade do |t|
