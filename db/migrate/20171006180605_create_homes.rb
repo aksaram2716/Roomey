@@ -7,6 +7,7 @@ class CreateHomes < ActiveRecord::Migration[5.1]
       t.integer :waterService
       t.integer :gasService
       t.integer :homePicture
+      t.references :users
     end
   end
 end
