@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :messages do
     resources :comments
   end
+
   resources :homes do
     collection do
       get 'remove'
