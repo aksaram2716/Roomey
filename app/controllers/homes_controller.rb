@@ -43,7 +43,7 @@ class HomesController < ApplicationController
   end
 
   def remove
-    @users.update(current_user.id, :homes_id => nil)
+    #@users.update(current_user.id, :homes_id => nil)
   end
   helper_method :remove
 
