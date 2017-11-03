@@ -4,7 +4,13 @@ Rails.application.routes.draw do
   resources :messages do
     resources :comments
   end
-  resources :homes
+
+  resources :homes do
+    collection do
+      get 'remove'
+    end
+  end
+
   resources :grocery_lists do
     collection do
       get 'bought'
