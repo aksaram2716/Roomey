@@ -65,8 +65,6 @@ ActiveRecord::Schema.define(version: 20171102221745) do
     t.integer "waterService"
     t.integer "gasService"
     t.integer "homePicture"
-    t.integer "users_id"
-    t.index ["users_id"], name: "index_homes_on_users_id"
   end
 
   create_table "messages", force: :cascade do |t|

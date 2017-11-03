@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   resources :grocery_lists do
     collection do
-      get 'bought'
+      post 'bought'
     end
   end
   resources :users
@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
   get  '/signup',  to: 'users#new'
   post '/signup',  to: 'users#create'
+  post '/grocery_list/:id/bought', to: 'grocery_list#bought'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

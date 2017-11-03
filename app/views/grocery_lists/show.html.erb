@@ -5,14 +5,18 @@
   <%= @grocerylist.name %>
 </p>
 
+&nbsp
+
 <p>
   <strong>Price:</strong>
   <%= @grocerylist.price %>
 </p>
 
+&nbsp
+
 <p>
-  <strong>Home ID:</strong>
-  <%= @grocerylist.homes_id %>
+  <strong>Quantity: </strong>
+  <%= @grocerylist.quantity %>
 </p>
 
 <%= link_to 'Edit', edit_grocery_list_path(@grocerylist) %> |

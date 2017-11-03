@@ -7,7 +7,7 @@ class GroceryListsController < ApplicationController
   # GET /grocerylist.json
   def index
     user = current_user
-    @grocerylists = GroceryList.where(homes_id: user.homes_id)
+    @grocerylists = GroceryList.where({homes_id: user.homes_id, shouldBuy: true})
     @commonlybought = GroceryList.where(homes_id: user.homes_id).order(timesBought: :desc).first(10)
   end
 
@@ -33,7 +33,7 @@ class GroceryListsController < ApplicationController
     respond_to do |format|
       if @grocerylist.save
         user = current_user
-        @grocerylist.update(homes_id: user.homes_id)
+        @grocerylist.update(homes_id: user.homes_id, timesBought: 0, shouldBuy: true)
         format.html { redirect_to @grocerylist, notice: 'GroceryList was successfully created.' }
         format.json { render :show, status: :created, location: @grocerylist }
       else
@@ -48,7 +48,7 @@ class GroceryListsController < ApplicationController
   def update
     respond_to do |format|
       if @grocerylist.update(grocery_list_params)
-        format.html { redirect_to @grocerylist, notice: 'Home was successfully updated.' }
+        format.html { redirect_to @grocerylist, notice: 'Item was successfully updated.' }
         format.json { render :show, status: :ok, location: @grocerylist }
       else
         format.html { render :edit }
@@ -58,23 +58,31 @@ class GroceryListsController < ApplicationController
   end
 
   def bought
-    redirect_to(root_url)
+    @grocerylist.update(shouldBuy: false)
   end
 
   # DELETE /grocerylist/1
   # DELETE /grocerylist/1.json
   def destroy
-    @grocerylist.destroy
-    respond_to do |format|
-      format.html { redirect_to grocery_lists_url, notice: 'Home was successfully destroyed.' }
-      format.json { head :no_content }
+    if @grocerylist.timesBought == 0
+        @grocerylist.destroy
+        respond_to do |format|
+          format.html { redirect_to grocery_lists_url, notice: 'Item was successfully Removed.' }
+          format.json { head :no_content }
+        end
+    else
+        @grocerylist.update(shouldBuy: false)
+        respond_to do |format|
+                  format.html { redirect_to grocery_lists_url, notice: 'Item was successfully Removed.' }
+                  format.json { head :no_content }
+        end
     end
   end
 
   # Confirms a logged-in user.
   def logged_in_user
     unless logged_in?
-        flash[:danger] = "Please log in."
+        flash.now[:danger] = "Please log in."
         redirect_to login_url
     end
   end
