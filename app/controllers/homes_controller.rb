@@ -43,7 +43,8 @@ class HomesController < ApplicationController
   end
 
   def remove
-    @users.update(current_user.id, :homes_id => nil)
+    User.update(current_user.id, :homes_id => nil)
+    redirect_to (root_url)
   end
 
   # PATCH/PUT /homes/1
