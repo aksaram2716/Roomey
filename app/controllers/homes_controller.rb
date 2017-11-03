@@ -12,6 +12,7 @@ class HomesController < ApplicationController
   # GET /homes/1
   # GET /homes/1.json
   def show
+    @users = User.where(homes_id: params[:id])
   end
 
   # GET /homes/new
