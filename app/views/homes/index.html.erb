@@ -12,14 +12,15 @@
   </thead>
 
   <tbody>
-    <% @homes.each do |home| %>
+    <% @homes.each.with_index do |home, index| %>
       <tr>
         <td><%= home.name %></td>
         <td><%= home.address %></td>
         <td><%= link_to 'Show', home %></td>
         <td><%= link_to 'Edit', edit_home_path(home) %></td>
         <td><%= link_to 'Destroy', home, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to 'Join', join_homes_path(home) %></td>
+        <%= @homeId = index + 1 %>
+        <td><%= link_to 'Join House', join_homes_path(@home, :id => @homeId) %></td>
       </tr>
     <% end %>
   </tbody>

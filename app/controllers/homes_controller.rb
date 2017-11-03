@@ -54,9 +54,8 @@ class HomesController < ApplicationController
   end
 
   def join
-    user = current_user
-    user.update(homes_id: 1)
-    redirect_to (homes_url)
+    User.update(current_user.id, :homes_id => params[:id])
+    redirect_to (Home.find(params[:id]))
   end
 
   # PATCH/PUT /homes/1
