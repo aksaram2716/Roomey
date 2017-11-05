@@ -1,18 +1,71 @@
 <p id="notice"><%= notice %></p>
 
-<h1>financialrecord</h1>
+<h1>Financial Records</h1>
+
+
+<h3>Current Balances Owed</h3>
 
 <table>
   <thead>
     <tr>
       <th>Amount &nbsp</th>
       <th>Home ID &nbsp</th>
-      <th>dateOwed &nbsp</th>
-      <th>datePaid &nbsp</th>
-      <th>receiverUID &nbsp</th>
-      <th>recieverSID &nbsp</th>
-      <th>paid &nbsp</th>
-      <th>users_id &nbsp</th>
+      <th>Date Owed &nbsp</th>
+      <th>Date Paid &nbsp</th>
+      <th>Receiver UID &nbsp</th>
+      <th>Reciever SID &nbsp</th>
+      <th>Paid &nbsp</th>
+      <th>User Id &nbsp</th>
+      <th colspan="8"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @currentfinancialrecord.each do |financialrecord| %>
+      <tr>
+        <td><%= financialrecord.amount %> &nbsp</td>
+        <td><%= financialrecord.homes_id %> &nbsp</td>
+
+        <td><%= financialrecord.dateOwed %> &nbsp</td>
+        <td><%= financialrecord.datePaid %> &nbsp</td>
+
+        <td><%= financialrecord.receiverUID %> &nbsp</td>
+        <td><%= financialrecord.recieverSID %> &nbsp</td>
+
+        <td><%= financialrecord.paid %> &nbsp</td>
+        <td><%= financialrecord.users_id %> &nbsp</td>
+
+        <td><%= link_to 'Show', financialrecord %> &nbsp</td>
+        <td><%= link_to 'Edit', edit_financial_record_path(financialrecord) %> &nbsp</td>
+        <td><%= link_to 'Paid', financialrecord, method: :delete, data: { confirm: 'Are you sure?' } %> &nbsp</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br/>
+
+<%= link_to 'New Payment', new_financial_record_path %>
+
+
+<br/>
+<br/>
+<br/>
+
+<h3>Past Payments</h3>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Amount &nbsp</th>
+      <th>Home ID &nbsp</th>
+      <th>Date Owed &nbsp</th>
+      <th>Date Paid &nbsp</th>
+      <th>Receiver UID &nbsp</th>
+      <th>Reciever SID &nbsp</th>
+      <th>Paid &nbsp</th>
+      <th>User ID &nbsp</th>
       <th colspan="8"></th>
     </tr>
   </thead>
@@ -33,13 +86,9 @@
         <td><%= financialrecord.users_id %> &nbsp</td>
 
         <td><%= link_to 'Show', financialrecord %> &nbsp</td>
-        <td><%= link_to 'Edit', edit_financial_record_path(financialrecord) %> &nbsp</td>
-        <td><%= link_to 'Destroy', financialrecord, method: :delete, data: { confirm: 'Are you sure?' } %> &nbsp</td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Payment', new_financial_record_path %>

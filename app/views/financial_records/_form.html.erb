@@ -17,28 +17,18 @@
   </div>
 
   <div class="field">
-    <%= form.label :homes_id %>
-    <%= form.text_field :homes_id, id: :homes_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :dateOwed %>
+    <%= form.label :'Date Owed' %>
     <%= form.date_field :dateOwed, id: :dateOwed %>
   </div>
 
   <div class="field">
-    <%= form.label :receiverUID %>
-    <%= form.text_field :receiverUID, id: :receiverUID %>
+    <%= form.label :'Receiver UID' %>
+    <%= form.number_field :receiverUID, id: :receiverUID %>
   </div>
 
   <div class="field">
-    <%= form.label :recieverSID %>
-    <%= form.text_field :recieverSID, id: :recieverSID %>
-  </div>
-
-  <div class="field">
-    <%= form.label :users_id %>
-    <%= form.text_field :users_id, id: :users_id %>
+    <%= form.label :'Reciever SID' %>
+    <%= form.number_field :recieverSID, id: :recieverSID %>
   </div>
 
   <div class="actions">

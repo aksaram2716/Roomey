@@ -26,9 +26,15 @@ User.create(id: 12, name: 'Nishant', phone: '847-999-9999', email: 'nishant@nish
 User.create(id: 13, name: 'Amber', phone: '847-999-9999', email: 'amber@amber.com' , homes_id: 3, password: 'Amber1')
 User.create(id: 14, name: 'Paige', phone: '847-999-9999', email: 'paige@paige.com' , homes_id: 3, password: 'Paige1')
 
-Home.create(id: 1, name: 'Home1', address: 'Purdue University', electricService: 1, waterService: 1, gasService: 1, homePicture: 1)
-Home.create(id: 2, name: 'Home2', address: 'Purdue University 2', electricService: 1, waterService: 1, gasService: 1, homePicture: 1)
-Home.create(id: 3, name: 'Home2', address: 'Purdue University 3', electricService: 1, waterService: 1, gasService: 1, homePicture: 1)
+User.create(id: 15, name: 'Kara', phone: '847-999-9999', email: 'kara@kara.com' , homes_id: 4, password: 'Kara12')
+User.create(id: 16, name: 'Ali', phone: '847-999-9999', email: 'ali@ali.com' , homes_id: 4, password: 'Ali123')
+User.create(id: 17, name: 'Dominic', phone: '847-999-9999', email: 'dominic@dominic.com' , homes_id: 4, password: 'Dominic')
+User.create(id: 18, name: 'Ernie', phone: '847-999-9999', email: 'ernie@ernie.com' , homes_id: 4, password: 'Ernie1')
+
+Home.create(id: 1, name: 'Home1', address: 'Purdue University', electricService: 1, waterService: 1, gasService: 1, homePicture: 1, users_id: 4)
+Home.create(id: 2, name: 'Home2', address: 'Purdue University 2', electricService: 1, waterService: 1, gasService: 1, homePicture: 1, users_id: 7)
+Home.create(id: 3, name: 'Home2', address: 'Purdue University 3', electricService: 1, waterService: 1, gasService: 1, homePicture: 1, users_id: 12)
+Home.create(id: 4, name: 'Kara\'s Home', address: 'South Beach', electricService: 1, waterService: 1, gasService: 1, homePicture: 1, users_id: 15)
 
 GroceryList.create(id: 1, price: 1.00, name: 'item1', quantity: 1, shouldBuy: true, timesBought: 1, homes_id: 1)
 GroceryList.create(id: 2, price: 2.00, name: 'item2', quantity: 2, shouldBuy: true, timesBought: 2, homes_id: 1)
@@ -56,5 +62,26 @@ GroceryList.create(id: 22, price: 22.00, name: 'item22', quantity: 22, shouldBuy
 GroceryList.create(id: 23, price: 23.00, name: 'item23', quantity: 23, shouldBuy: true, timesBought: 23, homes_id: 2)
 GroceryList.create(id: 24, price: 24.00, name: 'item24', quantity: 24, shouldBuy: true, timesBought: 24, homes_id: 2)
 
+FinancialRecord.create(id: 1, amount: 1.00, dateOwed: Date.new(2017,1,3) , datePaid: Date.new(2017,1,4) , receiverUID: 2, recieverSID: nil, paid: true, homes_id: 1, users_id: 1)
+FinancialRecord.create(id: 2, amount: 2.00, dateOwed: Date.new(2017,2,3) , datePaid: Date.new(2017,2,4) , receiverUID: 3, recieverSID: nil, paid: true, homes_id: 1, users_id: 2)
+FinancialRecord.create(id: 3, amount: 3.00, dateOwed: Date.new(2017,3,3) , datePaid: Date.new(2017,3,4) , receiverUID: 4, recieverSID: nil, paid: true, homes_id: 1, users_id: 3)
+FinancialRecord.create(id: 4, amount: 4.00, dateOwed: Date.new(2017,4,3) , datePaid: Date.new(2017,4,4) , receiverUID: 5, recieverSID: nil, paid: true, homes_id: 1, users_id: 4)
+FinancialRecord.create(id: 5, amount: 5.00, dateOwed: Date.new(2017,5,3) , datePaid: Date.new(2017,5,4) , receiverUID: 6, recieverSID: nil, paid: true, homes_id: 1, users_id: 5)
+FinancialRecord.create(id: 6, amount: 6.00, dateOwed: Date.new(2017,6,3) , datePaid: Date.new(2017,6,4) , receiverUID: 2, recieverSID: nil, paid: true, homes_id: 1, users_id: 6)
+FinancialRecord.create(id: 7, amount: 7.00, dateOwed: Date.new(2017,7,3) , datePaid: Date.new(2017,7,4) , receiverUID: 3, recieverSID: nil, paid: true, homes_id: 1, users_id: 1)
+FinancialRecord.create(id: 8, amount: 8.00, dateOwed: Date.new(2017,8,3) , datePaid: Date.new(2017,8,4) , receiverUID: 4, recieverSID: nil, paid: true, homes_id: 1, users_id: 2)
+FinancialRecord.create(id: 9, amount: 9.00, dateOwed: Date.new(2017,9,3) , datePaid: Date.new(2017,9,4) , receiverUID: 5, recieverSID: nil, paid: true, homes_id: 1, users_id: 3)
+FinancialRecord.create(id: 10, amount: 10.00, dateOwed: Date.new(2017,10,3) , datePaid: Date.new(2017,10,3) , receiverUID: 6, recieverSID: nil, paid: true, homes_id: 1, users_id: 4)
 
+FinancialRecord.create(id: 11, amount: 11.00, dateOwed: Date.new(2017,11,3) , datePaid: nil , receiverUID: 2, recieverSID: nil, paid: false, homes_id: 1, users_id: 1)
+FinancialRecord.create(id: 12, amount: 12.00, dateOwed: Date.new(2017,12,3) , datePaid: nil , receiverUID: 3, recieverSID: nil, paid: false, homes_id: 1, users_id: 2)
+FinancialRecord.create(id: 13, amount: 13.00, dateOwed: Date.new(2018,1,3) , datePaid: nil , receiverUID: 4, recieverSID: nil, paid: false, homes_id: 1, users_id: 3)
+FinancialRecord.create(id: 14, amount: 14.00, dateOwed: Date.new(2018,2,3) , datePaid: nil , receiverUID: 5, recieverSID: nil, paid: false, homes_id: 1, users_id: 4)
+FinancialRecord.create(id: 15, amount: 15.00, dateOwed: Date.new(2018,3,3) , datePaid: nil , receiverUID: 6, recieverSID: nil, paid: false, homes_id: 1, users_id: 5)
+FinancialRecord.create(id: 16, amount: 16.00, dateOwed: Date.new(2018,4,3) , datePaid: nil , receiverUID: 2, recieverSID: nil, paid: false, homes_id: 1, users_id: 6)
+
+FinancialRecord.create(id: 17, amount: 17.00, dateOwed: Date.new(2017,7,3) , datePaid: nil , receiverUID: 10, recieverSID: nil, paid: false, homes_id: 2, users_id: 7)
+FinancialRecord.create(id: 18, amount: 18.00, dateOwed: Date.new(2017,8,3) , datePaid: nil , receiverUID: 9, recieverSID: nil, paid: false, homes_id: 2, users_id: 8)
+FinancialRecord.create(id: 19, amount: 19.00, dateOwed: Date.new(2017,9,3) , datePaid: nil , receiverUID: 8, recieverSID: nil, paid: false, homes_id: 2, users_id: 9)
+FinancialRecord.create(id: 20, amount: 20.00, dateOwed: Date.new(2017,10,3) , datePaid: nil , receiverUID: 7, recieverSID: nil, paid: false, homes_id: 2, users_id: 10)
 

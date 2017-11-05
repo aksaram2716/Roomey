@@ -7,7 +7,8 @@ class FinancialRecordsController < ApplicationController
   # GET /financialrecord.json
   def index
     user = current_user
-    @financialrecord = FinancialRecord.all
+    @currentfinancialrecord = FinancialRecord.where({homes_id: current_user.homes_id, paid: false})
+    @financialrecord = FinancialRecord.where({homes_id: current_user.homes_id, paid: true})
   end
 
   # GET /financialrecord/1
@@ -32,7 +33,7 @@ class FinancialRecordsController < ApplicationController
     respond_to do |format|
       if @financialrecord.save
         user = current_user
-        #@financialrecord.update(homes_id: user.homes_id, timesBought: 0, shouldBuy: true)
+        @financialrecord.update(homes_id: user.homes_id, users_id: user.id, paid: false)
         format.html { redirect_to @financialrecord, notice: 'Financial Record was successfully created.' }
         format.json { render :show, status: :created, location: @financialrecord }
       else
@@ -59,7 +60,7 @@ class FinancialRecordsController < ApplicationController
   # DELETE /financialrecord/1
   # DELETE /financialrecord/1.json
   def destroy
-    @financialrecord.update(paid: true, datePaid:)
+    @financialrecord.update(paid: true, datePaid: DateTime.now.to_date)
        respond_to do |format|
          format.html { redirect_to financial_records_url, notice: 'Payment was successfully Awknowledged.' }
          format.json { head :no_content }

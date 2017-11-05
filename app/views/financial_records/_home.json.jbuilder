@@ -1,3 +1,3 @@
 
-json.extract! financialrecord, :id, :amount, :homes_id, :dateOwed, :datePaid, :receiverUID, :recieverSID, :paid, :users_id
+json.extract! financialrecord, :id, :amount, :dateOwed, :datePaid, :receiverUID, :recieverSID
 json.url financialrecord_url(home, format: :json)
