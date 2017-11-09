@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       get 'remove'
       get 'removeSelf'
       get 'join'
+      get 'pay'
     end
   end
 

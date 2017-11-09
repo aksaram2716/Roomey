@@ -28,20 +28,23 @@
           <thead>
             <tr>
               <th>Housemates</th>
-              <th><%=@home.users_id%></th>
             </tr>
           </thead>
           <tbody>
             <% @users.each do |users| %>
             <tr>
               <td><%=users.name%></td>
-              <td><%= link_to("Pay Roomate", '/homes/1') %></td>
+              <td>
+                <%= link_to("Pay Roommate", pay_homes_path(:user => users.id)) %>
+              </br>
+              </td>
               <td><%= if @home.users_id == current_user.id
                     link_to("Remove User", remove_homes_path(:user => users.id))
               end %></td>
             </tr>
-          <% end %>
-        </tbody>
+            <% end %>
+
+          </tbody>
         </table>
       </h5>
     </p>

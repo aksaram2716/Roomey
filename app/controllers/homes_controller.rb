@@ -57,6 +57,11 @@ class HomesController < ApplicationController
     redirect_to (Home.find(params[:id]))
   end
 
+  def pay
+
+    redirect_to (root_url + '/financial_records')
+  end
+
   # PATCH/PUT /homes/1
   # PATCH/PUT /homes/1.json
   def update
