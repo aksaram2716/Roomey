@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @transaction.price %>
+</p>
+
+<p>
+  <strong>Buyer:</strong>
+  <%= @transaction.buyer %>
+</p>
+
+<p>
+  <strong>Seller:</strong>
+  <%= @transaction.seller %>
+</p>
+
+<p>
+  <strong>Recurring:</strong>
+  <%= @transaction.recurring %>
+</p>
+
+<p>
+  <strong>Reason:</strong>
+  <%= @transaction.reason %>
+</p>
+
+<p>
+  <strong>Date due:</strong>
+  <%= @transaction.date_due %>
+</p>
+
+<p>
+  <strong>Date paid:</strong>
+  <%= @transaction.date_paid %>
+</p>
+
+<%= link_to 'Edit', edit_transaction_path(@transaction) %> |
+<%= link_to 'Back', transactions_path %>
+<br/>
+<% unless @seller.nil? %>
+<div class="btn-group">
+      <a href="<%= venmo_link("pay", @seller.email, @transaction.price, @transaction.reason) %>">
+        <button class="btn btn-primary">Pay Now with Venmo</button>
+      </a>
+</div>
+<% end %>
