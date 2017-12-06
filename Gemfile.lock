@@ -46,7 +46,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     arel (6.0.4)
-    autoprefixer-rails (7.1.6)
+    autoprefixer-rails (7.2.1)
       execjs
     bcrypt (3.1.11)
     better_errors (2.4.0)
@@ -237,7 +237,7 @@ GEM
       thread_safe (~> 0.1)
     tzinfo-data (1.2017.3)
       tzinfo (>= 1.0.0)
-    uglifier (4.0.0)
+    uglifier (4.0.1)
       execjs (>= 0.3.0, < 3)
     unread (0.9.1)
       activerecord (>= 3)

@@ -1,7 +1,7 @@
-## CS307 - Team 17
-### Roomedy
+## CS407 - Team 11
+### Roomey
 
-Bryan Duffy, Michael Reed, Simon Smith, Derek Schrag, Hari Mantena, Akshit Gudoor
+Anna Benjamin, Akshit Gudoor, Wyatt Larkey, Hari Mantena, Maxwell Molnar, Nicholas Schneider
 
 
 #### User Creation in Ruby Console

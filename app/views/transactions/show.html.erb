@@ -39,9 +39,16 @@
 <%= link_to 'Back', transactions_path %>
 <br/>
 <% unless @seller.nil? %>
+
+<% if current_user.email != @seller.email %>
+
 <div class="btn-group">
       <a href="<%= venmo_link("pay", @seller.email, @transaction.price, @transaction.reason) %>">
         <button class="btn btn-primary">Pay Now with Venmo</button>
       </a>
 </div>
+
+<% else %>
+<% end %>
+
 <% end %>
